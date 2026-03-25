@@ -473,6 +473,55 @@ nav {
 }
 .recipe-tip strong { color: var(--accent-green); }
 
+/* Tasting Set CTA */
+.set-cta {
+  text-align: center; padding: 36px 28px; margin: 28px 0;
+  background: var(--surface); border-radius: var(--radius-lg);
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.set-cta::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-green));
+}
+.set-cta-badge {
+  display: inline-block; font-size: .65rem; text-transform: uppercase;
+  letter-spacing: .16em; color: var(--accent); font-weight: 600;
+  margin-bottom: 14px; padding: 5px 14px; border-radius: 40px;
+  background: rgba(168,124,79,.08); border: 1px solid rgba(168,124,79,.15);
+}
+.set-cta h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; line-height: 1.2;
+}
+.set-cta p {
+  color: var(--text-dim); font-size: .88rem; margin-bottom: 8px;
+  max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.65;
+}
+.set-cta-features {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  margin: 18px 0 22px; font-size: .78rem; color: var(--text-dim);
+}
+.set-cta-feat {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 12px; border-radius: 6px; background: var(--surface-2);
+  border: 1px solid rgba(228,208,185,.4);
+}
+.set-cta .btn-order {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 12px 28px; border-radius: 8px; border: none;
+  font-family: 'Inter', sans-serif; font-size: .9rem; font-weight: 600;
+  cursor: pointer; transition: all .2s; text-decoration: none;
+  background: var(--text); color: var(--bg);
+}
+.set-cta .btn-order:hover {
+  background: var(--text-dim); box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+.set-cta-sub {
+  margin-top: 10px; font-size: .72rem; color: var(--text-muted);
+}
+
 /* Footer */
 .footer {
   text-align: center; padding: 40px 0; color: var(--text-muted);
@@ -529,24 +578,8 @@ nav {
   <p class="hero-micro">4 вопроса · 1 минута · персональная рекомендация</p>
 </div>
 
-<!-- STATS -->
-<div id="landing-blocks">
-<div class="stats-strip">
-  <div class="stat-item">
-    <div class="stat-num">88%</div>
-    <div class="stat-label">варят кофе<br>каждый день</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">69%</div>
-    <div class="stat-label">сравнивают<br>разные сорта</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">57%</div>
-    <div class="stat-label">хотят понять<br>свой вкус</div>
-  </div>
-</div>
-
 <!-- BENEFITS -->
+<div id="landing-blocks">
 <div class="benefits">
   <div class="benefit" onclick="startQuiz()" style="cursor:pointer">
     <div class="benefit-icon">🎯</div>
@@ -630,11 +663,19 @@ nav {
   <div class="proc-cards" id="procGrid"></div>
 </div>
 
-<!-- BOTTOM CTA -->
-<div class="bottom-cta">
-  <h2>Главный барьер — не техника.<br>А непонимание своего вкуса.</h2>
-  <p>Пройдите диагностику за 1 минуту — и получите персональную карту: ваша страна, обработка, метод заваривания и с чем сравнить, чтобы научиться различать.</p>
-  <button class="btn btn-primary" onclick="startQuiz()">Понять свой вкус →</button>
+<!-- TASTING SET CTA -->
+<div class="set-cta">
+  <div class="set-cta-badge">Shmelcoffee · Дегустационный сет</div>
+  <h2>Понимать вкус — значит сравнивать</h2>
+  <p>5–6 лотов из разных стран, дегустационный гид с пошаговыми вопросами и 2 заварки каждого кофе. Вы сравниваете параллельно — и начинаете различать кислотность, сладость и тело.</p>
+  <div class="set-cta-features">
+    <div class="set-cta-feat">☕ 5–6 сортов</div>
+    <div class="set-cta-feat">📖 Дегустационный гид</div>
+    <div class="set-cta-feat">⚖️ По 30 г / 2 заварки</div>
+    <div class="set-cta-feat">🌍 Разные страны и обработки</div>
+  </div>
+  <a href="https://t.me/m/F5-cKlk_M2My" target="_blank" class="btn-order">Заказать дегустационный сет →</a>
+  <p class="set-cta-sub">Напишите в Telegram — подберём сет под ваш профиль</p>
 </div>
 
 <div class="footer">Shmelco · product atelier · Specialty Coffee Guide</div>
@@ -973,6 +1014,19 @@ function showResults(top3) {
     <div style="text-align:center;margin-top:24px">
       <button class="btn" onclick="startQuiz()">Пройти заново</button>
     </div>
+
+    <div class="set-cta" style="margin-top:32px;text-align:center">
+      <div class="set-cta-badge">Следующий шаг</div>
+      <h2>Попробуйте на вкус</h2>
+      <p>Теперь вы знаете свой профиль. Дегустационный сет — это способ проверить и углубить понимание: 5–6 лотов из разных стран, которые вы сравниваете параллельно с пошаговым гидом.</p>
+      <div class="set-cta-features">
+        <div class="set-cta-feat">☕ 5–6 сортов</div>
+        <div class="set-cta-feat">📖 Гид с вопросами</div>
+        <div class="set-cta-feat">⚖️ 2 заварки каждого</div>
+      </div>
+      <a href="https://t.me/m/F5-cKlk_M2My" target="_blank" class="btn-order">Заказать дегустационный сет →</a>
+      <p class="set-cta-sub">Напишите в Telegram — подберём сет под ваш вкусовой профиль</p>
+    </div>
   `;
   setTimeout(()=>{
     document.querySelectorAll('.meter-fill').forEach(el=>{el.style.width=el.dataset.w;});
@@ -1220,14 +1274,14 @@ function openCountry(key){
    BREWING & PROCESSING
    ══════════════════════════════ */
 const brewData = [
-  {icon:'☕',name:'V60',desc:'Конусный дриппер с бумажным фильтром. Чистая, прозрачная чашка. Раскрывает деликатные цветочные и фруктовые ноты.',best:'Эфиопия, Кения, Панама, Руанда'},
-  {icon:'🫖',name:'Кемекс',desc:'Толстый фильтр убирает масла. Максимально чистый, «стеклянный» вкус. Идеален для дорогих лотов.',best:'Панама (Geisha), Эфиопия, Кения'},
-  {icon:'💉',name:'Аэропресс',desc:'Гибридный метод: давление + фильтрация. Можно варьировать от «фильтра» до «почти-эспрессо».',best:'Любой кофе — меняйте рецепт под страну'},
-  {icon:'🔩',name:'Эспрессо',desc:'Высокое давление, концентрация, тело. Раскрывает шоколадные и ореховые ноты. Основа для молочных напитков.',best:'Бразилия, Колумбия, Гватемала, Гондурас'},
-  {icon:'🍶',name:'Френч-пресс',desc:'Иммерсионный метод без фильтрации масел. Плотное тактильное тело. Шоколадные и землистые ноты.',best:'Бразилия, Индонезия, Гватемала'},
-  {icon:'🏔️',name:'Мока',desc:'Паровое давление, концентрированный экстракт. Интенсивный, насыщенный вкус. Итальянская классика.',best:'Бразилия, Индонезия, Гватемала'},
-  {icon:'🧊',name:'Cold Brew',desc:'Холодное заваривание 12–24 часа. Низкая кислотность, натуральная сладость, шоколадность.',best:'Бразилия, Колумбия, Гондурас, Перу'},
-  {icon:'☕',name:'Турка',desc:'Древнейший метод. Нефильтрованный, насыщенный, с осадком. Раскрывает пряные и сладкие ноты.',best:'Йемен, Эфиопия, Бразилия'},
+  {icon:'☕',name:'V60',key:'v60',desc:'Конусный дриппер с бумажным фильтром. Чистая, прозрачная чашка. Раскрывает деликатные цветочные и фруктовые ноты.',best:'Эфиопия, Кения, Панама, Руанда'},
+  {icon:'🫖',name:'Кемекс',key:'chemex',desc:'Толстый фильтр убирает масла. Максимально чистый, «стеклянный» вкус. Идеален для дорогих лотов.',best:'Панама (Geisha), Эфиопия, Кения'},
+  {icon:'💉',name:'Аэропресс',key:'aeropress',desc:'Гибридный метод: давление + фильтрация. Можно варьировать от «фильтра» до «почти-эспрессо».',best:'Любой кофе — меняйте рецепт под страну'},
+  {icon:'🔩',name:'Эспрессо',key:'espresso',desc:'Высокое давление, концентрация, тело. Раскрывает шоколадные и ореховые ноты. Основа для молочных напитков.',best:'Бразилия, Колумбия, Гватемала, Гондурас'},
+  {icon:'🍶',name:'Френч-пресс',key:'frenchpress',desc:'Иммерсионный метод без фильтрации масел. Плотное тактильное тело. Шоколадные и землистые ноты.',best:'Бразилия, Индонезия, Гватемала'},
+  {icon:'🏔️',name:'Мока',key:'moka',desc:'Паровое давление, концентрированный экстракт. Интенсивный, насыщенный вкус. Итальянская классика.',best:'Бразилия, Индонезия, Гватемала'},
+  {icon:'🧊',name:'Cold Brew',key:'coldbrew',desc:'Холодное заваривание 12–24 часа. Низкая кислотность, натуральная сладость, шоколадность.',best:'Бразилия, Колумбия, Гондурас, Перу'},
+  {icon:'☕',name:'Турка',key:'turka',desc:'Древнейший метод. Нефильтрованный, насыщенный, с осадком. Раскрывает пряные и сладкие ноты.',best:'Йемен, Эфиопия, Бразилия'},
 ];
 
 const procData = [
@@ -1245,8 +1299,16 @@ function renderBrewing(){
       <h3 class="brew-name">${m.name}</h3>
       <p class="brew-desc">${m.desc}</p>
       <p class="brew-best">→ ${m.best}</p>
+      <a href="#recipes" onclick="goToRecipe('${m.key}')" style="display:inline-block;margin-top:10px;font-size:.78rem;color:var(--accent);font-weight:500;text-decoration:none;cursor:pointer">Рецепты ${m.name} →</a>
     </div>
   `).join('');
+}
+
+function goToRecipe(key){
+  switchRecipeTab(key);
+  setTimeout(()=>{
+    document.getElementById('recipes').scrollIntoView({behavior:'smooth'});
+  },50);
 }
 
 function renderProcessing(){
